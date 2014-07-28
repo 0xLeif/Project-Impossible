@@ -1,0 +1,27 @@
+
+public class sdfasd {
+
+	public static void main(String[] args) {
+		System.out.println(encode("hello world", 5, 3));
+	}
+	
+	private static String encode(String s, int m, int b){
+		String temp = "";
+		for (int i = 0; i < s.length(); i++) {
+			temp += getChar(s.charAt(i), m, b);
+		}
+		return temp;
+	}
+	
+	private static char getChar(char c, int m, int b){
+		if(!Character.isLetter(c)){
+			return c;
+		}
+		char somethingelse = Character.toUpperCase(c);
+		int x = somethingelse - ((int)'A');
+		int y = ((m*x)+b)%26;
+		return (char) (y+'A');
+	}
+	
+
+}
